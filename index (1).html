@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Lazada Promo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGCOR4D - Liburan Ke Bali</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,161 +16,253 @@
 }
 
 body{
-    min-height:100vh;
+    background:#eef3f8;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    height:520px;
+    overflow:hidden;
+}
+
+.hero-slider{
     display:flex;
+    width:200%;
+    height:100%;
+    animation:slide 10s infinite;
+}
+
+.hero-slider img{
+    width:50%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+}
+
+.hero-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#F57224,#ffb347);
-}
-
-/* LINK STYLE LAZADA */
-a{
-    color:#F57224;
-}
-
-.container{
-    width:380px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(15px);
-    border-radius:25px;
-    padding:35px 30px;
     text-align:center;
     color:#fff;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    z-index:2;
 }
 
-/* LOGO */
-.logo{
-    width:120px;
-    margin-bottom:15px;
+.hero-content h1{
+    font-size:55px;
+    font-weight:800;
 }
 
-h1{
-    font-size:24px;
-    margin-bottom:10px;
+.hero-content h2{
+    font-size:28px;
+    color:#ffd54f;
+    margin-top:10px;
 }
 
-.desc{
-    font-size:14px;
-    margin-bottom:20px;
+.hero-content p{
+    font-size:18px;
+    margin-top:10px;
 }
 
-input{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:12px;
+@keyframes slide{
+    0%,45%{transform:translateX(0);}
+    50%,95%{transform:translateX(-50%);}
+    100%{transform:translateX(0);}
+}
+
+/* SECTION */
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.section h2{
     text-align:center;
-    font-size:16px;
-    font-weight:600;
-    outline:none;
+    margin-bottom:30px;
+    color:#00695c;
 }
 
-button{
-    width:100%;
-    margin-top:12px;
-    padding:14px;
-    border:none;
-    border-radius:12px;
-    background:#F57224;
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
+/* TICKET */
+.tickets{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
     transition:0.3s;
 }
 
-button:hover{
-    transform:scale(1.03);
-    background:#e85d10;
+.card:hover{
+    transform:translateY(-8px);
 }
 
-.result{
-    display:none;
-    margin-top:20px;
+.price{
+    font-size:26px;
+    font-weight:800;
+    color:#ff5722;
+    margin:10px 0;
 }
 
-.warning{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    background:rgba(255,0,0,0.25);
-    border-radius:10px;
-    font-size:14px;
+.btn{
+    display:inline-block;
+    padding:10px 22px;
+    background:#ff9800;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
 }
 
-.claim-btn{
-    margin-top:15px;
-    display:none;
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
 }
 
-.claim-btn button{
-    background:#00ff95;
-    color:#111;
+.gcard{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
+.gcard img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.gcard h3{
+    padding:15px;
+    color:#00796b;
+}
+
+.gcard p{
+    padding:0 15px 20px;
+    color:#666;
+}
+
+/* FOOTER */
+footer{
+    background:#00695c;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
 </style>
-</head>
 
+</head>
 <body>
 
-<div class="container">
-
-    <!-- LOGO LAZADA -->
-    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Lazada-logo-rounded-lazada-logo-free-png.webp" alt="Lazada Logo">
-
-    <h1>Lazada Promo</h1>
-    <p class="desc">Masukkan kode promo untuk mendapatkan saldo hingga Rp500.000</p>
-
-    <input type="text" id="promoCode" placeholder="Masukkan kode promo">
-
-    <button onclick="checkVoucher()">Cek Voucher</button>
-
-    <div class="warning" id="warning">
-        Kode voucher salah. Silakan coba lagi.
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-slider">
+        <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
     </div>
 
-    <div class="result" id="result">
-        <h2 id="saldoText"></h2>
-        <p>Selamat! Anda mendapatkan hadiah promo.</p>
-
-        <div class="claim-btn" id="claimBtn">
-            <a href="https://pagcoroke.com" target="_blank">
-                <button>CLAIM SEKARANG</button>
-            </a>
-        </div>
+    <div class="hero-content">
+        <h1>PAGCOR4D</h1>
+        <h2>🌴 WELCOME TO BALI 🌴</h2>
+        <p>Liburan Impian dengan Panorama Terindah</p>
+        <p>✈ Bandara Ngurah Rai - Pulau Dewata</p>
     </div>
-
 </div>
 
-<script>
+<!-- TIKET -->
+<div class="section">
+<h2>Paket Liburan Bali</h2>
 
-const VALID_CODE = "PROMOLIBURAN2026";
+<div class="tickets">
 
-function checkVoucher(){
+<div class="card">
+<h3>Hemat</h3>
+<div class="price">Rp100.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-    const input = document.getElementById("promoCode").value.trim();
-    const result = document.getElementById("result");
-    const warning = document.getElementById("warning");
-    const saldoText = document.getElementById("saldoText");
-    const claimBtn = document.getElementById("claimBtn");
+<div class="card">
+<h3>Promo</h3>
+<div class="price">Rp200.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-    if(input === VALID_CODE){
+<div class="card">
+<h3>Wisata</h3>
+<div class="price">Rp250.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-        const hadiah = 500000;
+<div class="card">
+<h3>Premium</h3>
+<div class="price">Rp350.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-        saldoText.innerHTML = "🎉 Rp " + hadiah.toLocaleString("id-ID");
+<div class="card">
+<h3>Eksklusif</h3>
+<div class="price">Rp500.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-        result.style.display = "block";
-        warning.style.display = "none";
-        claimBtn.style.display = "block";
+<div class="card">
+<h3>VIP</h3>
+<div class="price">Rp1.000.000</div>
+<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+</div>
 
-    } else {
-        warning.style.display = "block";
-        result.style.display = "none";
-    }
-}
+</div>
+</div>
 
-</script>
+<!-- DESTINASI -->
+<div class="section">
+<h2>Destinasi Wisata Bali</h2>
+
+<div class="gallery">
+
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80">
+<h3>Sunset Bali</h3>
+<p>Keindahan matahari terbenam di Pulau Dewata.</p>
+</div>
+
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
+<h3>Pantai Bali</h3>
+<p>Pasir putih dan laut biru yang menenangkan.</p>
+</div>
+
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
+<h3>Gunung & Alam</h3>
+<p>Pemandangan alam Bali yang sangat indah.</p>
+</div>
+
+</div>
+</div>
+
+<footer>
+<strong>PAGCOR4D</strong> - Liburan Ke Bali ✈🌴
+</footer>
 
 </body>
 </html>
