@@ -3,223 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGCOR4D - Liburan Ke Bali</title>
 
-<title>RTP LIVE PAGCOR4D | RTP Slot Gacor Hari Ini</title>
-
-<meta name="description" content="RTP LIVE PAGCOR4D hari ini. Cek RTP Slot Gacor terbaru dengan update realtime. Informasi RTP tertinggi Starlight Princess 1000, Rujak Bonanza, Fa Cai Shen, Mahjong Ways dan game populer lainnya.">
-
-<meta name="keywords" content="PAGCOR4D,RTP LIVE PAGCOR4D,RTP SLOT,RTP SLOT HARI INI,SLOT GACOR,POLA GACOR,MAHJONG WAYS,FA CAI SHEN,RUJAK BONANZA,STARLIGHT PRINCESS">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,Tahoma,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#090909;
-padding:30px;
+    background:#eef3f8;
 }
 
-.rtp-box{
-max-width:700px;
-margin:auto;
-background:linear-gradient(180deg,#1b1b1b,#0d0d0d);
-border:2px solid #FFD700;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 0 30px rgba(255,215,0,.35);
+/* HERO */
+.hero{
+    position:relative;
+    height:520px;
+    overflow:hidden;
 }
 
-.header{
-padding:25px;
-text-align:center;
-background:linear-gradient(90deg,#FFD700,#FF9800);
-color:#000;
+.hero-slider{
+    display:flex;
+    width:200%;
+    height:100%;
+    animation:slide 10s infinite;
 }
 
-.header h1{
-font-size:34px;
-font-weight:800;
-letter-spacing:2px;
+.hero-slider img{
+    width:50%;
+    height:100%;
+    object-fit:cover;
 }
 
-.header p{
-margin-top:8px;
-font-size:15px;
-font-weight:600;
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
 }
 
-.list{
-padding:25px;
+.hero-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    z-index:2;
 }
 
-.item{
-background:#1d1d1d;
-border-radius:12px;
-padding:18px;
-margin-bottom:18px;
-border:1px solid rgba(255,215,0,.2);
-transition:.3s;
+.hero-content h1{
+    font-size:55px;
+    font-weight:800;
 }
 
-.item:hover{
-transform:translateY(-3px);
-border-color:#FFD700;
-box-shadow:0 0 15px rgba(255,215,0,.2);
+.hero-content h2{
+    font-size:28px;
+    color:#ffd54f;
+    margin-top:10px;
 }
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:10px;
+.hero-content p{
+    font-size:18px;
+    margin-top:10px;
 }
 
-.game{
-font-size:18px;
-font-weight:700;
-color:#fff;
+@keyframes slide{
+    0%,45%{transform:translateX(0);}
+    50%,95%{transform:translateX(-50%);}
+    100%{transform:translateX(0);}
 }
 
-.rtp{
-font-size:20px;
-font-weight:800;
-color:#00ff66;
+/* SECTION */
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
 }
 
-.progress{
-height:12px;
-background:#333;
-border-radius:20px;
-overflow:hidden;
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#00695c;
 }
 
-.bar{
-height:100%;
-background:linear-gradient(90deg,#00ff66,#FFD700);
-border-radius:20px;
+/* TICKET */
+.tickets{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
 }
 
-.footer{
-padding:25px;
-background:#111;
-color:#bbb;
-line-height:1.8;
-font-size:14px;
-border-top:1px solid rgba(255,215,0,.2);
+.card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-.footer h2{
-color:#FFD700;
-margin-bottom:10px;
-font-size:20px;
+.card:hover{
+    transform:translateY(-8px);
 }
 
-.badge{
-display:inline-block;
-background:#FFD700;
-color:#000;
-padding:5px 12px;
-border-radius:30px;
-font-weight:bold;
-margin-top:10px;
+.price{
+    font-size:26px;
+    font-weight:800;
+    color:#ff5722;
+    margin:10px 0;
 }
 
+.btn{
+    display:inline-block;
+    padding:10px 22px;
+    background:#ff9800;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.gcard{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.gcard img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.gcard h3{
+    padding:15px;
+    color:#00796b;
+}
+
+.gcard p{
+    padding:0 15px 20px;
+    color:#666;
+}
+
+/* FOOTER */
+footer{
+    background:#00695c;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
 </style>
 
 </head>
-
 <body>
 
-<div class="rtp-box">
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-slider">
+        <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
+    </div>
 
-<div class="header">
-
-<h1>🎰 RTP LIVE PAGCOR4D 🎰</h1>
-
-<p>Update RTP Slot Gacor Hari Ini • Realtime • Akurat</p>
-
+    <div class="hero-content">
+        <h1>PAGCOR4D</h1>
+        <h2>🌴 WELCOME TO BALI 🌴</h2>
+        <p>Liburan Impian dengan Panorama Terindah</p>
+        <p>✈ Bandara Ngurah Rai - Pulau Dewata</p>
+    </div>
 </div>
 
-<div class="list">
+<!-- TIKET -->
+<div class="section">
+<h2>Paket Liburan Bali</h2>
 
-<div class="item">
+<div class="tickets">
 
-<div class="top">
-<div class="game">⭐ Starlight Princess 1000</div>
-<div class="rtp">97%</div>
+<div class="card">
+<h3>Hemat</h3>
+<div class="price">Rp100.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
-<div class="progress">
-<div class="bar" style="width:97%"></div>
+<div class="card">
+<h3>Promo</h3>
+<div class="price">Rp200.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
+<div class="card">
+<h3>Wisata</h3>
+<div class="price">Rp250.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
-<div class="item">
-
-<div class="top">
-<div class="game">🍉 Rujak Bonanza</div>
-<div class="rtp">98%</div>
+<div class="card">
+<h3>Premium</h3>
+<div class="price">Rp350.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
-<div class="progress">
-<div class="bar" style="width:98%"></div>
+<div class="card">
+<h3>Eksklusif</h3>
+<div class="price">Rp500.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
-</div>
-
-<div class="item">
-
-<div class="top">
-<div class="game">💰 Fa Cai Shen</div>
-<div class="rtp">99%</div>
-</div>
-
-<div class="progress">
-<div class="bar" style="width:99%"></div>
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="top">
-<div class="game">🀄 Mahjong Ways</div>
-<div class="rtp">95%</div>
-</div>
-
-<div class="progress">
-<div class="bar" style="width:95%"></div>
+<div class="card">
+<h3>VIP</h3>
+<div class="price">Rp1.000.000</div>
+<a href="https://l1nq.com/hr1g0mo" class="btn">Pesan</a>
 </div>
 
 </div>
-
 </div>
 
-<div class="footer">
+<!-- DESTINASI -->
+<div class="section">
+<h2>Destinasi Wisata Bali</h2>
 
-<h2>🔥 PAGCOR4D - RTP SLOT GACOR HARI INI</h2>
+<div class="gallery">
 
-<p>
-PAGCOR4D menghadirkan informasi RTP LIVE terbaru setiap hari untuk membantu pemain menemukan game dengan RTP tertinggi. Update dilakukan secara berkala sehingga Anda dapat melihat persentase RTP game populer seperti <strong>Starlight Princess 1000</strong>, <strong>Rujak Bonanza</strong>, <strong>Fa Cai Shen</strong>, dan <strong>Mahjong Ways</strong>.
-</p>
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80">
+<h3>Sunset Bali</h3>
+<p>Keindahan matahari terbenam di Pulau Dewata.</p>
+</div>
 
-<p>
-Temukan bocoran RTP Slot Hari Ini, pola gacor terbaru, serta daftar game dengan peluang kemenangan terbaik hanya di <strong>PAGCOR4D</strong>.
-</p>
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
+<h3>Pantai Bali</h3>
+<p>Pasir putih dan laut biru yang menenangkan.</p>
+</div>
 
-<div class="badge">
-RTP LIVE UPDATE 24 JAM
+<div class="gcard">
+<img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
+<h3>Gunung & Alam</h3>
+<p>Pemandangan alam Bali yang sangat indah.</p>
 </div>
 
 </div>
-
 </div>
+
+<footer>
+<strong>PAGCOR4D</strong> - Liburan Ke Bali ✈🌴
+</footer>
 
 </body>
 </html>
