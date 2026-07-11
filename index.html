@@ -3,521 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Explore Jawa - Paket Wisata Jawa</title>
-
-<meta name="description" content="Explore Jawa menyediakan paket liburan terbaik ke Jakarta, Bandung, Yogyakarta, dan Bromo.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Promo Liburan</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
 body{
-background:#f5f7fa;
-color:#333;
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9f43,#ff6b6b);
+    font-family:Arial,sans-serif;
 }
 
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-z-index:99;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 7%;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
+.card{
+    width:380px;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
 }
 
 .logo{
-font-size:25px;
-font-weight:800;
-color:#00897b;
+    width:80px;
+    margin-bottom:10px;
 }
 
-nav a{
-text-decoration:none;
-color:#333;
-margin-left:20px;
-font-weight:600;
+.desc{
+    font-size:13px;
+    color:#666;
+    margin-bottom:15px;
+    line-height:1.4;
 }
 
-
-/* HERO */
-
-.hero{
-
-height:650px;
-position:relative;
-overflow:hidden;
-
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    text-align:center;
 }
 
-.slide{
-
-display:flex;
-width:300%;
-height:100%;
-animation:slider 15s infinite;
-
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#ff6a00;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:10px;
 }
 
-.slide img{
-
-width:33.333%;
-height:650px;
-object-fit:cover;
-
+button:hover{
+    background:#e85d00;
 }
 
-
-.hero:after{
-
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.45);
-
+.result{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#eaffea;
+    color:#0a7a2a;
+    font-weight:bold;
 }
 
-
-.hero-text{
-
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-color:white;
-z-index:2;
-width:90%;
-
+.error{
+    display:none;
+    margin-top:15px;
+    padding:12px;
+    background:#ffe5e5;
+    color:#c0392b;
+    border-radius:10px;
+    font-size:13px;
 }
 
-
-.hero-text h1{
-
-font-size:55px;
-font-weight:800;
-
+.claim-btn{
+    display:none;
+    margin-top:10px;
 }
-
-
-.hero-text span{
-
-color:#ffd740;
-
-}
-
-
-.hero-text p{
-
-font-size:20px;
-margin:20px 0;
-
-}
-
-
-.btn{
-
-background:#ff9800;
-color:white;
-padding:14px 30px;
-border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-display:inline-block;
-
-}
-
-
-
-/* SECTION */
-
-.container{
-
-max-width:1200px;
-margin:auto;
-padding:70px 20px;
-
-}
-
-
-.title{
-
-text-align:center;
-font-size:35px;
-color:#00897b;
-margin-bottom:40px;
-
-}
-
-
-/* CARD */
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-
-}
-
-
-.card{
-
-background:white;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-transition:.3s;
-
-}
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-.card img{
-
-width:100%;
-height:220px;
-object-fit:cover;
-
-}
-
-
-.card-body{
-
-padding:20px;
-
-}
-
-
-.card h3{
-
-color:#00897b;
-
-}
-
-
-.price{
-
-font-size:25px;
-font-weight:800;
-color:#ff5722;
-margin:15px 0;
-
-}
-
-
-
-/* FLOAT WHATSAPP */
-
-.wa{
-
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-z-index:100;
-
-}
-
-
-/* FOOTER */
-
-footer{
-
-background:#00695c;
-color:white;
-text-align:center;
-padding:30px;
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-nav{
-
-padding:15px 20px;
-
-}
-
-nav a{
-
-display:none;
-
-}
-
-
-.hero,
-.slide img{
-
-height:500px;
-
-}
-
-
-.hero-text h1{
-
-font-size:35px;
-
-}
-
-
-.hero-text p{
-
-font-size:16px;
-
-}
-
-
-.title{
-
-font-size:28px;
-
-}
-
-}
-
-
-
-@keyframes slider{
-
-0%,30%{
-transform:translateX(0);
-}
-
-35%,60%{
-transform:translateX(-33.333%);
-}
-
-65%,95%{
-transform:translateX(-66.666%);
-}
-
-100%{
-transform:translateX(0);
-}
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<nav>
-
-<div class="logo">
-🌴 EXPLORE JAWA
-</div>
-
-<div>
-<a href="#">Home</a>
-<a href="#">Paket</a>
-<a href="#">Destinasi</a>
-<a href="#">Kontak</a>
-</div>
-
-</nav>
-
-
-
-<section class="hero">
-
-<div class="slide">
-
-<img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1600">
-
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600">
-
-<img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1600">
-
-</div>
-
-
-<div class="hero-text">
-
-<h1>
-LIBURAN KE <span>PULAU JAWA</span>
-</h1>
-
-<p>
-Jelajahi wisata terbaik Jawa dengan paket nyaman dan harga terbaik
-</p>
-
-<a class="btn" href="https://tinyurl.com/32yyym3p">
-Pesan Sekarang
-</a>
-
-</div>
-
-</section>
-
-
-
-<section class="container">
-
-<h2 class="title">
-Paket Wisata Jawa
-</h2>
-
-
-<div class="cards">
-
-
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=800">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Lazada-logo-rounded-lazada-logo-free-png.webp">
 
-<div class="card-body">
+    <h2>Promo Liburan</h2>
 
-<h3>Jakarta City Tour</h3>
+    <p class="desc">
+        Masukkan kode voucher spesial untuk mendapatkan saldo giveaway hingga Rp1.000.000
+    </p>
 
-<p>Monas, Kota Tua dan wisata sejarah.</p>
+    <input type="text" id="promoCode" placeholder="Masukkan kode promo">
 
-<div class="price">
-Rp299.000
-</div>
+    <button onclick="checkPromo()">Cek Promo</button>
 
-<a class="btn" href="https://tinyurl.com/32yyym3p">
-Booking
-</a>
+    <div class="error" id="error"></div>
 
-</div>
+    <div class="result" id="result"></div>
 
-</div>
-
-
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800">
-
-<div class="card-body">
-
-<h3>Bandung Explore</h3>
-
-<p>Kawah Putih, Lembang dan wisata alam.</p>
-
-<div class="price">
-Rp499.000
-</div>
-
-<a class="btn" href="https://tinyurl.com/32yyym3p">
-Booking
-</a>
+    <div class="claim-btn" id="claimBtn">
+        <button onclick="claimNow()">CLAIM SEKARANG</button>
+    </div>
 
 </div>
 
-</div>
+<script>
 
+const VALID_CODE = "LIBUR2026";
 
+const nominal = [
+    50000,100000,150000,200000,250000,
+    300000,350000,400000,450000,500000,1000000
+];
 
-<div class="card">
+function checkPromo(){
 
-<img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=800">
+    const input = document.getElementById("promoCode").value.trim();
+    const result = document.getElementById("result");
+    const error = document.getElementById("error");
+    const claimBtn = document.getElementById("claimBtn");
 
-<div class="card-body">
+    let claimed = localStorage.getItem("claimedVoucher");
 
-<h3>Yogyakarta Tour</h3>
+    if(claimed){
+        error.style.display = "block";
+        error.innerHTML = "Voucher sudah pernah diklaim.";
+        result.style.display = "none";
+        claimBtn.style.display = "none";
+        return;
+    }
 
-<p>Borobudur, Prambanan dan Malioboro.</p>
+    if(input === VALID_CODE){
 
-<div class="price">
-Rp699.000
-</div>
+        const hadiah = nominal[Math.floor(Math.random()*nominal.length)];
 
-<a class="btn" href="https://tinyurl.com/32yyym3p">
-Booking
-</a>
+        result.style.display = "block";
+        error.style.display = "none";
+        claimBtn.style.display = "block";
 
-</div>
+        result.innerHTML = "🎉 Kamu mendapatkan Rp " + hadiah.toLocaleString("id-ID");
 
-</div>
+        // simpan sementara nilai hadiah
+        localStorage.setItem("lastReward", hadiah);
 
+    } else {
+        error.style.display = "block";
+        error.innerHTML = "Kode voucher salah!";
+        result.style.display = "none";
+        claimBtn.style.display = "none";
+    }
+}
 
+function claimNow(){
 
-<div class="card">
+    // tandai sudah klaim
+    localStorage.setItem("claimedVoucher", "true");
 
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800">
+    alert("Voucher berhasil diklaim!");
 
-<div class="card-body">
+    // redirect yang BENAR
+    window.location.href = "https://pagcoroke.com";
+}
 
-<h3>Gunung Bromo</h3>
-
-<p>Sunrise terbaik Jawa Timur.</p>
-
-<div class="price">
-Rp899.000
-</div>
-
-<a class="btn" href="https://tinyurl.com/32yyym3p">
-Booking
-</a>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<b>EXPLORE JAWA</b>
-
-<br>
-
-Liburan nyaman menjelajahi Pulau Jawa 🇮🇩
-
-<div class="seo-apeng">
-
-SEO BYE APENG
-
-</div>
-
-</footer>
-
-
-
-<a class="wa" href="https://wa.me/6287859803397">
-💬 WhatsApp
-</a>
-
+</script>
 
 </body>
 </html>
