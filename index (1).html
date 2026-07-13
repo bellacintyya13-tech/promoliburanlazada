@@ -4,277 +4,698 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Proteksi Asuransi</title>
-
-<meta name="description" content="Layanan informasi asuransi kesehatan, jiwa, kendaraan, dan properti.">
+<title>Cyber Neon Tetris</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#f5f7fb;
-    color:#333;
-}
-
-header{
-    background:#004aad;
-    color:#fff;
-    padding:15px 8%;
+    height:100vh;
+    overflow:hidden;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-}
-
-header h2{
-    font-size:24px;
-}
-
-nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-.hero{
-    background:linear-gradient(rgba(0,74,173,.8),rgba(0,74,173,.8)),
-    url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80");
+    background:
+    linear-gradient(#020617,#000),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455");
     background-size:cover;
-    background-position:center;
     color:white;
-    text-align:center;
-    padding:100px 20px;
 }
 
-.hero h1{
-    font-size:48px;
-    margin-bottom:20px;
+
+body:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+    rgba(0,255,255,.1),
+    rgba(255,0,255,.15)
+    );
+    animation:city 5s infinite alternate;
 }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
+
+@keyframes city{
+    from{filter:hue-rotate(0deg)}
+    to{filter:hue-rotate(90deg)}
 }
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 35px;
-    background:#ffc107;
-    color:#000;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
 
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-    padding:70px 0;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.card h3{
-    color:#004aad;
-    margin-bottom:15px;
-}
-
-.form-box{
-    background:#fff;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-input,select{
-    width:100%;
-    padding:14px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    border:none;
-    background:#004aad;
-    color:white;
-    font-size:16px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#00337a;
-}
-
-.result{
-    margin-top:20px;
-    font-size:22px;
-    font-weight:bold;
-    color:green;
-}
-
-footer{
-    background:#002b60;
-    color:white;
-    text-align:center;
+.game{
+    position:relative;
+    z-index:2;
+    display:flex;
+    gap:20px;
     padding:20px;
 }
 
-@media(max-width:768px){
-.hero h1{
-font-size:34px;
-}
-}
-</style>
 
+canvas{
+    background:#020617;
+    border:3px solid cyan;
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px magenta;
+}
+
+
+.panel{
+    width:180px;
+}
+
+
+.box{
+    background:#050b1c;
+    border:2px solid magenta;
+    padding:15px;
+    margin-bottom:15px;
+    text-align:center;
+    box-shadow:0 0 15px magenta;
+}
+
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    cursor:pointer;
+    background:#00ffff;
+    border:none;
+    font-weight:bold;
+}
+
+
+h1{
+    color:#00ffff;
+    text-shadow:0 0 20px cyan;
+}
+
+
+@media(max-width:700px){
+
+.game{
+    transform:scale(.75);
+}
+
+.panel{
+    display:none;
+}
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-<header>
 
-<h2>Proteksi Asuransi</h2>
+<div class="game">
 
-<nav>
-<a href="#">Home</a>
-<a href="#">Produk</a>
-<a href="#">Kontak</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<h1>Perlindungan Terbaik untuk Masa Depan</h1>
-
-<p>
-Kami menyediakan informasi mengenai perlindungan kesehatan, jiwa, kendaraan, dan properti dengan layanan profesional.
-</p>
-
-<a href="https://tinyurl.com/eefn2nv3"
-   class="btn"
-   target="_blank"
-   rel="noopener noreferrer">
-   KONSULTASI SEKARANG
-</a>
+<canvas id="board" width="300" height="600"></canvas>
 
 
-</section>
+<div class="panel">
 
-<div class="container">
+<h1>CYBER<br>TETRIS</h1>
 
-<h2 class="title">
-Produk Kami
-</h2>
 
-<div class="cards">
-
-<div class="card">
-<h3>Asuransi Jiwa</h3>
-<p>Memberikan perlindungan finansial bagi keluarga Anda.</p>
+<div class="box">
+Score
+<h2 id="score">0</h2>
 </div>
 
-<div class="card">
-<h3>Asuransi Kesehatan</h3>
-<p>Menanggung biaya kesehatan sesuai ketentuan polis.</p>
+
+<div class="box">
+High Score
+<h2 id="high">0</h2>
 </div>
 
-<div class="card">
-<h3>Asuransi Kendaraan</h3>
-<p>Perlindungan kendaraan dari berbagai risiko.</p>
+
+<div class="box">
+Next
+<canvas id="next" width="120" height="120"></canvas>
 </div>
 
-<div class="card">
-<h3>Asuransi Properti</h3>
-<p>Menjaga rumah dan aset tetap aman.</p>
+
+<div class="box">
+Hold
+<canvas id="hold" width="120" height="120"></canvas>
 </div>
 
-</div>
 
-</div>
-
-<div class="container">
-
-<div class="form-box">
-
-<h2>Simulasi Premi</h2>
-
-<input
-type="number"
-id="nilai"
-placeholder="Masukkan nilai pertanggungan">
-
-<select id="kategori">
-
-<option value="0.01">Asuransi Jiwa (1%)</option>
-<option value="0.02">Asuransi Kesehatan (2%)</option>
-<option value="0.015">Asuransi Kendaraan (1.5%)</option>
-
-</select>
-
-<button onclick="hitung()">
-Hitung Estimasi Premi
+<button onclick="hardDrop()">
+⚡ HARD DROP
 </button>
 
-<div id="hasil" class="result"></div>
+
+<button onclick="toggleSound()">
+🎵 SOUND
+</button>
+
 
 </div>
 
 </div>
 
-<footer>
 
-© 2026 Proteksi Asuransi
-
-</footer>
 
 <script>
-function hitung(){
 
-const nilai = Number(document.getElementById("nilai").value);
-const tarif = Number(document.getElementById("kategori").value);
 
-if(!nilai || nilai <= 0){
-    alert("Masukkan nilai pertanggungan yang valid.");
-    return;
+const canvas=document.getElementById("board");
+const ctx=canvas.getContext("2d");
+
+
+const nextCanvas=document.getElementById("next");
+const nextCtx=nextCanvas.getContext("2d");
+
+
+const holdCanvas=document.getElementById("hold");
+const holdCtx=holdCanvas.getContext("2d");
+
+
+const ROW=20;
+const COL=10;
+const SIZE=30;
+
+
+let score=0;
+
+let high=
+localStorage.getItem("cyberHigh")||0;
+
+document.getElementById("high").innerHTML=high;
+
+
+
+const colors=[
+null,
+"#00ffff",
+"#ff00ff",
+"#ffff00",
+"#00ff66",
+"#ff6600",
+"#9933ff",
+"#ff0055"
+];
+
+
+const pieces=[
+
+[
+[1,1,1,1]
+],
+
+[
+[1,1],
+[1,1]
+],
+
+[
+[0,1,0],
+[1,1,1]
+],
+
+[
+[1,0,0],
+[1,1,1]
+],
+
+[
+[0,0,1],
+[1,1,1]
+],
+
+[
+[1,1,0],
+[0,1,1]
+],
+
+[
+[0,1,1],
+[1,1,0]
+]
+
+];
+
+
+
+let board=[];
+
+
+function createBoard(){
+
+board=[];
+
+for(let r=0;r<ROW;r++){
+board.push(new Array(COL).fill(0));
 }
 
-const premi = nilai * tarif;
+}
 
-document.getElementById("hasil").innerHTML =
-"Estimasi Premi: Rp " +
-premi.toLocaleString("id-ID",{
-style:"currency",
-currency:"IDR"
+createBoard();
+
+
+
+function randomPiece(){
+
+let id=
+Math.floor(Math.random()*pieces.length)+1;
+
+return{
+matrix:pieces[id-1],
+color:id,
+x:3,
+y:0
+}
+
+}
+
+
+
+let player=randomPiece();
+
+let next=randomPiece();
+
+let hold=null;
+
+let canHold=true;
+
+
+
+function drawBlock(x,y,c,context=ctx,size=SIZE){
+
+context.fillStyle=colors[c];
+
+context.shadowBlur=15;
+context.shadowColor=colors[c];
+
+context.fillRect(
+x*size,
+y*size,
+size-1,
+size-1
+);
+
+context.shadowBlur=0;
+
+}
+
+
+
+function draw(){
+
+ctx.clearRect(0,0,300,600);
+
+
+for(let r=0;r<ROW;r++){
+
+for(let c=0;c<COL;c++){
+
+if(board[r][c])
+drawBlock(c,r,board[r][c]);
+
+}
+
+}
+
+
+
+drawPiece(player);
+
+
+drawGhost();
+
+
+drawMini(next,nextCtx);
+
+drawMini(hold,holdCtx);
+
+}
+
+
+
+function drawPiece(p){
+
+p.matrix.forEach((row,y)=>{
+
+row.forEach((v,x)=>{
+
+if(v)
+drawBlock(
+p.x+x,
+p.y+y,
+p.color
+);
+
 });
+
+});
+
 }
+
+
+
+function drawGhost(){
+
+let g={
+...player,
+y:player.y
+};
+
+
+while(!collision(g)){
+g.y++;
+}
+
+g.y--;
+
+
+ctx.globalAlpha=.2;
+
+drawPiece(g);
+
+ctx.globalAlpha=1;
+
+}
+
+
+
+function drawMini(p,c){
+
+c.clearRect(0,0,120,120);
+
+if(!p)return;
+
+
+p.matrix.forEach((row,y)=>{
+
+row.forEach((v,x)=>{
+
+if(v)
+drawBlock(
+x+1,
+y+1,
+p.color,
+c,
+25
+);
+
+});
+
+});
+
+}
+
+
+
+
+function collision(p){
+
+for(let y=0;y<p.matrix.length;y++){
+
+for(let x=0;x<p.matrix[y].length;x++){
+
+if(
+p.matrix[y][x] &&
+(
+!board[p.y+y] ||
+board[p.y+y][p.x+x]
+!==0
+)
+
+)
+
+return true;
+
+}
+
+}
+
+return false;
+
+}
+
+
+
+
+function merge(){
+
+player.matrix.forEach((row,y)=>{
+
+row.forEach((v,x)=>{
+
+if(v)
+board[player.y+y][player.x+x]=player.color;
+
+});
+
+});
+
+
+clearLines();
+
+
+player=next;
+next=randomPiece();
+
+canHold=true;
+
+}
+
+
+
+function clearLines(){
+
+let lines=0;
+
+
+for(let r=ROW-1;r>=0;r--){
+
+if(board[r].every(v=>v)){
+
+board.splice(r,1);
+
+board.unshift(
+new Array(COL).fill(0)
+);
+
+lines++;
+
+r++;
+
+}
+
+}
+
+
+if(lines){
+
+score+=lines*100;
+
+document.getElementById("score").innerHTML=score;
+
+
+if(score>high){
+
+high=score;
+
+localStorage.setItem(
+"cyberHigh",
+high
+);
+
+document.getElementById("high").innerHTML=high;
+
+}
+
+
+sound();
+
+}
+
+}
+
+
+
+function move(dx){
+
+player.x+=dx;
+
+if(collision(player))
+player.x-=dx;
+
+}
+
+
+
+function rotate(){
+
+let old=player.matrix;
+
+player.matrix=
+player.matrix[0].map(
+(_,i)=>
+player.matrix.map(
+row=>row[i]
+).reverse()
+);
+
+
+if(collision(player))
+player.matrix=old;
+
+}
+
+
+
+
+function drop(){
+
+player.y++;
+
+
+if(collision(player)){
+
+player.y--;
+
+merge();
+
+}
+
+
+}
+
+
+
+function hardDrop(){
+
+while(!collision(player)){
+player.y++;
+}
+
+player.y--;
+
+merge();
+
+}
+
+
+
+function holdPiece(){
+
+if(!canHold)return;
+
+
+let temp=hold;
+
+hold={
+...player,
+x:3,
+y:0
+};
+
+
+if(temp)
+player=temp;
+else
+player=next,
+next=randomPiece();
+
+
+canHold=false;
+
+}
+
+
+
+document.addEventListener(
+"keydown",
+e=>{
+
+
+if(e.key=="ArrowLeft")
+move(-1);
+
+if(e.key=="ArrowRight")
+move(1);
+
+if(e.key=="ArrowDown")
+drop();
+
+if(e.key=="ArrowUp")
+rotate();
+
+if(e.key==" ")
+hardDrop();
+
+if(e.key=="Shift")
+holdPiece();
+
+
+draw();
+
+});
+
+
+
+setInterval(()=>{
+
+drop();
+
+draw();
+
+},700);
+
+
+
+let soundOn=true;
+
+
+function toggleSound(){
+
+soundOn=!soundOn;
+
+}
+
+
+
+function sound(){
+
+if(!soundOn)return;
+
+
+let a=
+new AudioContext();
+
+let o=a.createOscillator();
+
+o.frequency.value=500;
+
+o.connect(a.destination);
+
+o.start();
+
+o.stop(
+a.currentTime+.1
+);
+
+}
+
+
+
+draw();
+
+
 </script>
+
 
 </body>
 </html>
