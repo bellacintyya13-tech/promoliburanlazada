@@ -3,266 +3,521 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAGCOR4D - Liburan Ke Bali</title>
+
+<title>Explore Jawa - Paket Wisata Jawa</title>
+
+<meta name="description" content="Explore Jawa menyediakan paket liburan terbaik ke Jakarta, Bandung, Yogyakarta, dan Bromo.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#eef3f8;
+background:#f5f7fa;
+color:#333;
 }
+
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:white;
+z-index:99;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 7%;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+.logo{
+font-size:25px;
+font-weight:800;
+color:#00897b;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+margin-left:20px;
+font-weight:600;
+}
+
 
 /* HERO */
+
 .hero{
-    position:relative;
-    height:520px;
-    overflow:hidden;
+
+height:650px;
+position:relative;
+overflow:hidden;
+
 }
 
-.hero-slider{
-    display:flex;
-    width:200%;
-    height:100%;
-    animation:slide 10s infinite;
+.slide{
+
+display:flex;
+width:300%;
+height:100%;
+animation:slider 15s infinite;
+
 }
 
-.hero-slider img{
-    width:50%;
-    height:100%;
-    object-fit:cover;
+.slide img{
+
+width:33.333%;
+height:650px;
+object-fit:cover;
+
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.45);
+
+.hero:after{
+
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.45);
+
 }
 
-.hero-content{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    z-index:2;
+
+.hero-text{
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+z-index:2;
+width:90%;
+
 }
 
-.hero-content h1{
-    font-size:55px;
-    font-weight:800;
+
+.hero-text h1{
+
+font-size:55px;
+font-weight:800;
+
 }
 
-.hero-content h2{
-    font-size:28px;
-    color:#ffd54f;
-    margin-top:10px;
+
+.hero-text span{
+
+color:#ffd740;
+
 }
 
-.hero-content p{
-    font-size:18px;
-    margin-top:10px;
+
+.hero-text p{
+
+font-size:20px;
+margin:20px 0;
+
 }
 
-@keyframes slide{
-    0%,45%{transform:translateX(0);}
-    50%,95%{transform:translateX(-50%);}
-    100%{transform:translateX(0);}
-}
-
-/* SECTION */
-.section{
-    max-width:1100px;
-    margin:auto;
-    padding:50px 20px;
-}
-
-.section h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#00695c;
-}
-
-/* TICKET */
-.tickets{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#fff;
-    padding:25px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.price{
-    font-size:26px;
-    font-weight:800;
-    color:#ff5722;
-    margin:10px 0;
-}
 
 .btn{
-    display:inline-block;
-    padding:10px 22px;
-    background:#ff9800;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    font-weight:600;
+
+background:#ff9800;
+color:white;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+display:inline-block;
+
 }
 
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+
+
+/* SECTION */
+
+.container{
+
+max-width:1200px;
+margin:auto;
+padding:70px 20px;
+
 }
 
-.gcard{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+
+.title{
+
+text-align:center;
+font-size:35px;
+color:#00897b;
+margin-bottom:40px;
+
 }
 
-.gcard img{
-    width:100%;
-    height:200px;
-    object-fit:cover;
+
+/* CARD */
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+
 }
 
-.gcard h3{
-    padding:15px;
-    color:#00796b;
+
+.card{
+
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+transition:.3s;
+
 }
 
-.gcard p{
-    padding:0 15px 20px;
-    color:#666;
+
+.card:hover{
+
+transform:translateY(-10px);
+
 }
+
+
+.card img{
+
+width:100%;
+height:220px;
+object-fit:cover;
+
+}
+
+
+.card-body{
+
+padding:20px;
+
+}
+
+
+.card h3{
+
+color:#00897b;
+
+}
+
+
+.price{
+
+font-size:25px;
+font-weight:800;
+color:#ff5722;
+margin:15px 0;
+
+}
+
+
+
+/* FLOAT WHATSAPP */
+
+.wa{
+
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:100;
+
+}
+
 
 /* FOOTER */
+
 footer{
-    background:#00695c;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
+
+background:#00695c;
+color:white;
+text-align:center;
+padding:30px;
+
 }
+
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+nav{
+
+padding:15px 20px;
+
+}
+
+nav a{
+
+display:none;
+
+}
+
+
+.hero,
+.slide img{
+
+height:500px;
+
+}
+
+
+.hero-text h1{
+
+font-size:35px;
+
+}
+
+
+.hero-text p{
+
+font-size:16px;
+
+}
+
+
+.title{
+
+font-size:28px;
+
+}
+
+}
+
+
+
+@keyframes slider{
+
+0%,30%{
+transform:translateX(0);
+}
+
+35%,60%{
+transform:translateX(-33.333%);
+}
+
+65%,95%{
+transform:translateX(-66.666%);
+}
+
+100%{
+transform:translateX(0);
+}
+
+}
+
 </style>
 
 </head>
+
+
 <body>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="hero-slider">
-        <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
-    </div>
 
-    <div class="hero-content">
-        <h1>PAGCOR4D</h1>
-        <h2>🌴 WELCOME TO BALI 🌴</h2>
-        <p>Liburan Impian dengan Panorama Terindah</p>
-        <p>✈ Bandara Ngurah Rai - Pulau Dewata</p>
-    </div>
+<nav>
+
+<div class="logo">
+🌴 EXPLORE JAWA
 </div>
 
-<!-- TIKET -->
-<div class="section">
-<h2>Paket Liburan Bali</h2>
+<div>
+<a href="#">Home</a>
+<a href="#">Paket</a>
+<a href="#">Destinasi</a>
+<a href="#">Kontak</a>
+</div>
 
-<div class="tickets">
+</nav>
+
+
+
+<section class="hero">
+
+<div class="slide">
+
+<img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=1600">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600">
+
+<img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1600">
+
+</div>
+
+
+<div class="hero-text">
+
+<h1>
+LIBURAN KE <span>PULAU JAWA</span>
+</h1>
+
+<p>
+Jelajahi wisata terbaik Jawa dengan paket nyaman dan harga terbaik
+</p>
+
+<a class="btn" href="https://tinyurl.com/32yyym3p">
+Pesan Sekarang
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="container">
+
+<h2 class="title">
+Paket Wisata Jawa
+</h2>
+
+
+<div class="cards">
+
 
 <div class="card">
-<h3>Hemat</h3>
-<div class="price">Rp100.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+
+<img src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?w=800">
+
+<div class="card-body">
+
+<h3>Jakarta City Tour</h3>
+
+<p>Monas, Kota Tua dan wisata sejarah.</p>
+
+<div class="price">
+Rp299.000
 </div>
+
+<a class="btn" href="https://tinyurl.com/32yyym3p">
+Booking
+</a>
+
+</div>
+
+</div>
+
+
 
 <div class="card">
-<h3>Promo</h3>
-<div class="price">Rp200.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+
+<img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800">
+
+<div class="card-body">
+
+<h3>Bandung Explore</h3>
+
+<p>Kawah Putih, Lembang dan wisata alam.</p>
+
+<div class="price">
+Rp499.000
 </div>
+
+<a class="btn" href="https://tinyurl.com/32yyym3p">
+Booking
+</a>
+
+</div>
+
+</div>
+
+
 
 <div class="card">
-<h3>Wisata</h3>
-<div class="price">Rp250.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+
+<img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=800">
+
+<div class="card-body">
+
+<h3>Yogyakarta Tour</h3>
+
+<p>Borobudur, Prambanan dan Malioboro.</p>
+
+<div class="price">
+Rp699.000
 </div>
+
+<a class="btn" href="https://tinyurl.com/32yyym3p">
+Booking
+</a>
+
+</div>
+
+</div>
+
+
 
 <div class="card">
-<h3>Premium</h3>
-<div class="price">Rp350.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800">
+
+<div class="card-body">
+
+<h3>Gunung Bromo</h3>
+
+<p>Sunrise terbaik Jawa Timur.</p>
+
+<div class="price">
+Rp899.000
 </div>
 
-<div class="card">
-<h3>Eksklusif</h3>
-<div class="price">Rp500.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
-</div>
+<a class="btn" href="https://tinyurl.com/32yyym3p">
+Booking
+</a>
 
-<div class="card">
-<h3>VIP</h3>
-<div class="price">Rp1.000.000</div>
-<a href="https://tinyurl.com/eefn2nv3" class="btn">Pesan</a>
-</div>
-
-</div>
-</div>
-
-<!-- DESTINASI -->
-<div class="section">
-<h2>Destinasi Wisata Bali</h2>
-
-<div class="gallery">
-
-<div class="gcard">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80">
-<h3>Sunset Bali</h3>
-<p>Keindahan matahari terbenam di Pulau Dewata.</p>
-</div>
-
-<div class="gcard">
-<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80">
-<h3>Pantai Bali</h3>
-<p>Pasir putih dan laut biru yang menenangkan.</p>
-</div>
-
-<div class="gcard">
-<img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&w=1600&q=80">
-<h3>Gunung & Alam</h3>
-<p>Pemandangan alam Bali yang sangat indah.</p>
 </div>
 
 </div>
+
+
 </div>
+
+</section>
+
+
 
 <footer>
-<strong>PAGCOR4D</strong> - Liburan Ke Bali ✈🌴
+
+<b>EXPLORE JAWA</b>
+
+<br>
+
+Liburan nyaman menjelajahi Pulau Jawa 🇮🇩
+
+<div class="seo-apeng">
+
+SEO BY APENG
+
+</div>
+
 </footer>
+
+
+
+<a class="wa" href="https://wa.me/+855965123003">
+💬 WhatsApp
+</a>
+
 
 </body>
 </html>
